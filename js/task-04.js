@@ -1,30 +1,33 @@
-const decrementListenerButton = document.querySelector('[data-action = "decrement"]');
-const incrementListenerButton = document.querySelector('[data-action = "increment"]');
-const valueData = document.querySelector('#value');
+const decrementListenerButton = document.querySelector(
+  '[data-action = "decrement"]'
+);
+const incrementListenerButton = document.querySelector(
+  '[data-action = "increment"]'
+);
+const valueData = document.querySelector("#value");
 
-decrementListenerButton.addEventListener('click', handlerTargetButtonclick);
-incrementListenerButton.addEventListener('click', onClickTargetButtonclick);
+decrementListenerButton.addEventListener("click", handlerTargetButtonclick);
+incrementListenerButton.addEventListener("click", onClickTargetButtonclick);
 
 const counterValue = {
-value:0,
-step: 1,
-decrement(){
-this.value -= this.step;
-},
-increment(){
-this.value += this.step;
-}
-}
+  value: 0,
+  decrement() {
+    this.value -= 1;
+  },
+  increment() {
+    this.value += 1;
+  },
+};
 
-function handlerTargetButtonclick(event){
-   valueData.textContent = counterValue.value;
-   counterValue.decrement();
-   if(valueData.textContent == 0){
+function handlerTargetButtonclick(event) {
+  counterValue.decrement();
+  valueData.textContent = counterValue.value;
+  if (valueData.textContent == 0) {
     counterValue.value = 0;
-    };
-};
+  }
+}
 
-function onClickTargetButtonclick(event){
-    valueData.textContent = counterValue.value;
-    counterValue.increment();
-};
+function onClickTargetButtonclick(event) {
+  counterValue.increment();
+  valueData.textContent = counterValue.value;
+}

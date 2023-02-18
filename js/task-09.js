@@ -9,7 +9,7 @@ function getRandomHexColor() {
 }
 
 function randomColor(event) {
-  const color = getRandomHexColor()
+  const color = getRandomHexColor();
   body.style.backgroundColor = color;
   span.textContent = color;
 }
